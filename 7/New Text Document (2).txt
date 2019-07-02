@@ -1,0 +1,6 @@
+ bool lower = value < folge[middle];
+    int n = lower ? find( value, folge, middle ) 
+                  : find( value, folge + middle + 1, max - middle - 1 );
+
+    return n != -1 && !lower ? n + middle + 1: n; 
+}

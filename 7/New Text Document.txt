@@ -1,0 +1,14 @@
+int find( int value, int* folge, int max ) 
+{
+    if ( max == 0 ) return -1;
+
+    int middle = max / 2;
+
+    if ( folge[middle] == value ) return middle;
+
+    bool lower = value < folge[middle];
+    int n = lower ? find( value, folge, middle ) 
+                  : find( value, folge + middle + 1, max - middle - 1 );
+
+    return n != -1 && !lower ? n + middle + 1: n; 
+}
